@@ -1,7 +1,7 @@
 import React, { Component, Suspense } from 'react';
 import { Switch, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
-import Fullscreen from "react-full-screen";
+import {FullScreen} from "react-full-screen";
 import windowSize from 'react-window-size';
 
 import config from 'config/config';
@@ -69,7 +69,7 @@ class AdminLayout extends Component {
           });
         return (
             <Aux>
-                <Fullscreen enabled={this.props.isFullScreen}>
+                <FullScreen enabled={this.props.isFullScreen}>
                     <Navigation />
                     <NavBar rtlLayout={config.rtlLayout} />
                     <div className="pcoded-main-container" onClick={() => this.mobileOutClickHandler}>
@@ -91,7 +91,7 @@ class AdminLayout extends Component {
                             </div>
                         </div>
                     </div>
-                </Fullscreen>
+                </FullScreen>
             </Aux>
         );
     }

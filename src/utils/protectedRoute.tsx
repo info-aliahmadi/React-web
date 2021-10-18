@@ -1,13 +1,19 @@
-import React from 'react'
+import React,{ReactNode,Component, ReactChild, ReactChildren, ComponentType} from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import rootReducers from 'store/store';
+import rootReducers, { RootState } from 'store/store';
 
-function ProtectedRoute({ children, component: Component, ...rest }) {
-  const user = useSelector((state: rootReducers)  => state.auth.user)
 
+const ProtectedRoute= ( children: any , component: ComponentType, ...rest: any[] ) => {
+  const user = useSelector((state: RootState) => {
+    return state.auth.user;
+  });
+  
+  
+  //useSelector((state)  => state.auth.user)
+  
   return user
-    ? (<Route {...rest} component={Component} />)
+    ? (<Route {...rest} component={component} />)
     : (<Redirect to={'/login'} />)
 }
 

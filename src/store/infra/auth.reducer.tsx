@@ -1,7 +1,13 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import * as actionTypes from "./auth.actions";
 
+interface Todo {
+  type: string;
+  payload: boolean;
+}
 
-export default function (state = { user: null, isLoadingUser: false }, action) {
+
+export default function (state = { user: null, isLoadingUser: false }, action:PayloadAction<string>) {
   switch (action.type) {
     case actionTypes.STORE_USER:
       return {
