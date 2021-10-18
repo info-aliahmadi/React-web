@@ -20,7 +20,7 @@ class AdminLayout extends Component {
     fullScreenExitHandler = () => {
         if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
             this.props.onFullScreenExit();
-        }
+        } 
     };
 
     componentWillMount() {
